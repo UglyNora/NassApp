@@ -11,21 +11,21 @@ import javax.swing.*;
 public class NassApp extends JFrame
 {
 
-    public NassApp()
+	public static void main ( String[] args )
     {
         JFrame frame = new JFrame ("NASS Engine");
         Container container = frame.getContentPane();
         container.setLayout(new FlowLayout());
 
-        JLabel label = new JLabel ("NASS");
-        JTextField textfield = new JTextField();
-        JButton button = new JButton ();
+        JLabel label = new JLabel ("NASS Search: ");
+        JTextField tf1 = new JTextField();
+        JButton search = new JButton ();
 
         container.add (label);
-        container.add (textfield);
-        container.add (button);
+        container.add (tf1);
+        container.add (search);
 
-        frame.setSize (500, 500);
+        frame.setSize (500, 300);
         frame.setVisible (true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
