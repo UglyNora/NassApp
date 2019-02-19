@@ -18,8 +18,8 @@ public class NassApp extends JFrame
         container.setLayout(new FlowLayout());
 
         JLabel label = new JLabel ("NASS Search: ");
-        JTextField tf1 = new JTextField();
-        JButton search = new JButton ();
+        JTextField tf1 = new JTextField(25);
+        JButton search = new JButton ("Search");
 
         container.add (label);
         container.add (tf1);
