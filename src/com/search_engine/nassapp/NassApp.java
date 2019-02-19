@@ -1,48 +1,39 @@
-package com.search_engine.nassapp;
-
-//A standalone GUI search engine app- stub user interface.
-//Written by Mac Wiener, Valrico FL, 2019
-
-
+package nass_gui;
 import java.awt.*;
-import javax.swing.*;
 
-
-public class NassApp extends JFrame
+public class MyGUI extends Frame
 {
+	Label searchLbl = null;
+	TextField searchFld = null;
+	Button searchBtn = null;
+	Button maintenanceBtn = null;
+	Button aboutBtn = null;
+	
+	MyGUI()
+	{
+		super("NASS Search Engine");
+		
+		searchLbl = new Label("Search: ");
+		searchFld = new TextField("",50);
+		searchBtn = new Button("Search");
+		maintenanceBtn = new Button("Maintenance");
+		aboutBtn = new Button("About");
+		
+		this.add(searchLbl);
+		this.add(searchFld);
+		this.add(searchBtn);
+		this.add(maintenanceBtn);
+		this.add(aboutBtn);
+		
+		this.setLayout(new FlowLayout());
+		this.setSize(700,200
+			);
+		this.setVisible(true);
+	}
+	
+	public static void main(String[] args) 
+	{
+		new MyGUI();
+	}
 
-    public NassApp()
-    {
-        JFrame frame = new JFrame ("NASS Engine");
-        Container container = frame.getContentPane();
-        container.setLayout(new FlowLayout());
-
-        JLabel label = new JLabel ("NASS");
-        JTextField textfield = new JTextField();
-        JButton button = new JButton ();
-
-        container.add (label);
-        container.add (textfield);
-        container.add (button);
-
-        frame.setSize (500, 500);
-        frame.setVisible (true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
-
-
-
-
-}
-class HouseKeeping{
-    public static void main ( String args[])
-    {
-        //open file/database to be searched.
-
-        NassApp obj = new NassApp();
-
-        //close file/database, add or delete files.
-
-
-    }
 }
