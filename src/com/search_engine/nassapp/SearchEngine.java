@@ -17,7 +17,7 @@ public  class SearchEngine
     private String filesInIndex[];
 
 
-    //- This method should return the contents of filesInIndex
+    //TODO : This method should return the contents of filesInIndex
     public String[] GetListOfFilesUsedInIndex()
     {
         return new String[] {"Stub"};
@@ -77,11 +77,10 @@ public  class SearchEngine
         return new ArrayList<String>();
     }
 
-    //- This method should return a HashSet of Integers containing only
+    //TODO : This method should return a HashSet of Integers containing only
     //-  the documents numbers which are in the given set
     private HashSet<Integer> GetDocumentNumbers(HashSet<IndexEntry> setToSearch)
     {
-
         return new HashSet<Integer>();
     }
 

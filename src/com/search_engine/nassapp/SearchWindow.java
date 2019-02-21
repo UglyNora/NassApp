@@ -1,12 +1,11 @@
 package com.search_engine.nassapp;
 
 //A standalone GUI search engine app- stub user interface.
-//Written by Mac Wiener, Valrico FL, 2019
+//Written by Dexter Sicarius, Tampa FL, 2019
 
 
 import javafx.scene.control.Control;
 import javafx.scene.control.RadioButton;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
