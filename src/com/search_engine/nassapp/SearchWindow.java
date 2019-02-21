@@ -16,7 +16,12 @@ import javax.swing.*;
 
 public class SearchWindow extends JFrame
 {
+    //|Controls|\\
+
     private SearchEngine currentEngine;
+
+    //|Fields|\\
+
     private JFrame       searchWindowFrame;
     private JLabel       windowHeaderLabel;
     private JTextField   searchField;
@@ -30,6 +35,7 @@ public class SearchWindow extends JFrame
     private Container    container;
 
 
+    //|Instance Methods|\\
 
     public static void main ( String args[])
     {
@@ -87,6 +93,8 @@ public class SearchWindow extends JFrame
 
     }
 
+
+    //|Constructors|\\
 
     public SearchWindow()
     {
