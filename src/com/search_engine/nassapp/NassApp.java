@@ -7,9 +7,13 @@ package com.search_engine.nassapp;
 
 import java.awt.*;
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 //import java.awt.font;
 
-public class NassApp extends JFrame
+public class NassApp extends JFrame implements ActionListener//User's View
 {
 
     public NassApp()
@@ -28,6 +32,9 @@ public class NassApp extends JFrame
         JLabel label4 = new JLabel ("Exact Match");
         JButton button2 = new JButton ("Maintenance...");
         JButton button3 = new JButton ("About...");
+
+        button2.addActionListener(this);
+        button3.addActionListener(this);
 
         container.add (label);
         container.add (textfield);
@@ -50,20 +57,61 @@ public class NassApp extends JFrame
     }
 
 
+     public void actionPerformed(ActionEvent e) {
+         if (e.getActionCommand().equals("Maintenance...")) {
+             JFrame frame = new JFrame ("NASS Engine Admin");
+             Container container2 = frame.getContentPane();
+             container2.setLayout(new FlowLayout());
+             JLabel label = new JLabel ("NASS Admin");
+             JTextField textfield = new JTextField( 550);
+             JLabel label2 = new JLabel ("File Name");
+             JLabel label3 = new JLabel ("Status");
+             JButton button = new JButton ("Add File...");
+             JButton button2 = new JButton ("Rebuild Out-of-Date");
+             JButton button3 = new JButton ("Remove Selected Files");
+             JButton button4 = new JButton ("Reset Windows");
+             JLabel label4 = new JLabel ("Number of files indexed: 0");
+             JLabel label5 = new JLabel ("Nass Engine version 1.1");
 
 
-}
-class HouseKeeping{
-    public static void main ( String args[])
-    {
-        //open file/database to be searched.
+             container2.add (label);
+             container2.add (textfield);
+             container2.add (label2);
+             container2.add (label3);
+             container2.add (button);
+             container2.add (button2);
+             container2.add (button3);
+             container2.add (button4);
+             container2.add (label4);
+             container2.add (label5);
 
-        NassApp obj = new NassApp();
+             label.setFont (new Font("Futura", Font.BOLD,30));
+             frame.setSize (550, 200);
+             frame.setVisible (true);
+             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
+         }
+         else if (e.getActionCommand().equals("About...")) {
+           JLabel label = new JLabel("     NASS Engine triumphs over GOOGLE!" );
+           JFrame frame = new JFrame ("NASS Engine");
+           Container container3 = frame.getContentPane();
+           container3.add (label);
+           label.setFont (new Font("Futura", Font.BOLD,20));
+           frame.setSize (550, 200);
+           frame.setVisible (true);
+           frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+         }
 
-        //close file/database, add or delete files.
+     }
+         public static void main (String args[])
+         {
+             //open file/database to be searched.
+
+             NassApp obj = new NassApp();
+
+             //close file/database, add or delete files.
 
 
-    }
-}
+         }
+     }
