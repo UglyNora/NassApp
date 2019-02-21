@@ -7,7 +7,12 @@ import java.awt.event.ActionListener;
 
 public class AdminMenu
 {
+    //|Fields|\\
+
     private SearchEngine  administeredEngine;
+
+    //|Controls|\\
+
     private JFrame        adminFrame;
     private JLabel        windowHeaderLabel;
     private JList<String> fileList;
@@ -16,6 +21,7 @@ public class AdminMenu
     private JButton       rebuildIndexButton;
     private Container     adminContainer;
 
+    //|Instance Methods|\\
 
     //TODO : This method should take window controls (searchbox, labels, etc) and configure them so they
     //- are visible, are positioned on the page somewhere appropriate, and any relevant properties have been
@@ -93,7 +99,7 @@ public class AdminMenu
 
         //TODO : This method should get the text of the currently selected item in the fileList control.
         //- It should then trigger a dialog box which asks the user if they are sure they want to remove
-        //- that file.  If confirmed, the method should then use the RemoveFileFromIndexFileList method for
+        //- that file.  If confirmed, the method should use the RemoveFileFromIndexFileList method for
         //- the administeredEngine and update the fileList to reflect the removal.
         @Override public void actionPerformed(ActionEvent e)
         {

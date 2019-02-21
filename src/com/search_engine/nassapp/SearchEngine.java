@@ -9,6 +9,8 @@ public  class SearchEngine
 {
     public enum SearchType { And, Or, Phrase, Not }
 
+    //|Fields|\\
+
     //- The HashMap that will serve as the searchable index for all of the words and their positions
     private HashMap<String, HashSet<IndexEntry>> wordIndex = new HashMap<String, HashSet<IndexEntry>>();
     //- The location of the file containing the file paths for the data files to be searched by the engine
@@ -16,6 +18,7 @@ public  class SearchEngine
     //- A String[] of the filepaths for the datafiles being used by the index
     private String filesInIndex[];
 
+    //|Instance Methods|\\
 
     //TODO : This method should return the contents of filesInIndex
     public String[] GetListOfFilesUsedInIndex()
