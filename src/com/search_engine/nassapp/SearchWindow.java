@@ -1,12 +1,11 @@
 package com.search_engine.nassapp;
 
 //A standalone GUI search engine app- stub user interface.
-//Written by Mac Wiener, Valrico FL, 2019
+//Written by Dexter Sicarius, Tampa FL, 2019
 
 
 import javafx.scene.control.Control;
 import javafx.scene.control.RadioButton;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,7 +16,12 @@ import javax.swing.*;
 
 public class SearchWindow extends JFrame
 {
+    //|Controls|\\
+
     private SearchEngine currentEngine;
+
+    //|Fields|\\
+
     private JFrame       searchWindowFrame;
     private JLabel       windowHeaderLabel;
     private JTextField   searchField;
@@ -31,6 +35,7 @@ public class SearchWindow extends JFrame
     private Container    container;
 
 
+    //|Instance Methods|\\
 
     public static void main ( String args[])
     {
@@ -88,6 +93,8 @@ public class SearchWindow extends JFrame
 
     }
 
+
+    //|Constructors|\\
 
     public SearchWindow()
     {
