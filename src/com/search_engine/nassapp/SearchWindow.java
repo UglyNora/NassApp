@@ -113,6 +113,14 @@ public class SearchWindow extends JFrame
         container.setLayout(new FlowLayout());
 
         container.add(windowHeaderLabel);
+        container.add(searchButton);
+        container.add(searchField);
+        container.add(phraseRadioButton);
+        container.add(andRadioButton);
+        container.add(orRadioButton);
+        container.add(notRadioButton);
+        container.add(adminButton);
+
 
         searchWindowFrame.setSize(1200, 700);
         searchWindowFrame.setVisible(true);
