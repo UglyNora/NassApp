@@ -1,6 +1,6 @@
 package com.search_engine.nassapp;
 
-public class IndexEntry
+public class WordPosition
 {
     //|Fields|\\
 
@@ -33,7 +33,7 @@ public class IndexEntry
         return coordinates[1] == position;
     }
 
-    //TODO :  This method should cast the given argument as an IndexEntry and then check the
+    //TODO :  This method should cast the given argument as an WordPosition and then check the
     //- document number and position in that instance.  If they are the same as the instance
     // it is being compared to, return true, else return false
     @Override public boolean equals(Object obj)
@@ -45,16 +45,16 @@ public class IndexEntry
 
     //TODO :  This constructor accepts two int arguments and should assign those to their
     //- appropriate positions in the coordinates array.
-    public IndexEntry(int documentNumber, int wordPosition)
+    public WordPosition(int documentNumber, int wordPosition)
     {
         coordinates = new int[] {1,1};
 
         return;
     }
 
-    //TODO :  This constructor accepts another IndexEntry and should copy its fields to the
+    //TODO :  This constructor accepts another WordPosition and should copy its fields to the
     //- appropriate positions in the coordinates array.
-    public IndexEntry(IndexEntry entryToCopy)
+    public WordPosition(WordPosition entryToCopy)
     {
         coordinates = new int[] {1,1};
 
