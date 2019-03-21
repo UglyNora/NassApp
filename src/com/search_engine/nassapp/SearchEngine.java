@@ -12,7 +12,8 @@ public  class SearchEngine
     //|Fields|\\
 
     //- The HashMap that will serve as the searchable index for all of the words and their positions
-    private HashMap<String, HashSet<IndexEntry>> wordIndex = new HashMap<String, HashSet<IndexEntry>>();
+
+
     //- The location of the file containing the file paths for the data files to be searched by the engine
     private String pathFileLocation = "DataFiles.txt";
     //- A String[] of the filepaths for the datafiles being used by the index
@@ -55,7 +56,10 @@ public  class SearchEngine
         boolean searchIsValid = true;
 
         String firstWord = wordsToQuery[0];
-        HashSet<IndexEntry> indexEntriesForWord = wordIndex.get(firstWord);
+
+        HashSet<WordPosition> indexEntriesForWord = wordIndex.get(firstWord);
+
+        
         HashSet<Integer> documentsContaingAllWords = GetDocumentNumbers(indexEntriesForWord);
 
         if(wordsToQuery.length > 1)
@@ -82,22 +86,27 @@ public  class SearchEngine
 
     //TODO : This method should return a HashSet of Integers containing only
     //-  the documents numbers which are in the given set
-    private HashSet<Integer> GetDocumentNumbers(HashSet<IndexEntry> setToSearch)
+
+    private HashSet<Integer> GetDocumentNumbers(HashSet<WordPosition> setToSearch)
+
+   
     {
         return new HashSet<Integer>();
     }
 
     //- This method takes a set of IndexEntries and returns a new set containing only
     //- those entries with the given document number
-    private HashSet<IndexEntry> FilterSetByDocumentNumber(HashSet<IndexEntry> setToFilter, int documentNumber)
-    {
-        HashSet<IndexEntry> filteredSet = new HashSet<IndexEntry>();
 
-        for (IndexEntry potentialMatch : setToFilter)
+    private HashSet<WordPosition> FilterSetByDocumentNumber(HashSet<WordPosition> setToFilter, int documentNumber)
+    {
+        HashSet<WordPosition> filteredSet = new HashSet<WordPosition>();
+
+        for (WordPosition potentialMatch : setToFilter)
         {
             if(potentialMatch.IsInDocument(documentNumber))
             {
-                filteredSet.add(new IndexEntry(potentialMatch));
+                filteredSet.add(new WordPosition(potentialMatch));
+
             }
         }
 
@@ -206,23 +215,32 @@ public  class SearchEngine
         return new String[] {"This", "is", "a", "stub"};
     }
 
-    //- This method checks to see if a word is already in the index, if so it adds a new IndexEntry
+
+    //- This method checks to see if a word is already in the index, if so it adds a new WordPosition
+
     //- for the given position, if not it adds the word to the index with a new HashSet containing
     //- the given position
     private void AddWordInstanceToIndex(String wordInstance, int fileNumber, int position)
     {
-        IndexEntry indexEntryForWordInstance = new IndexEntry(fileNumber, position);
+
+        WordPosition wordPositionForWordInstance = new WordPosition(fileNumber, position);
+
+       
 
         if(wordIndex.containsKey(wordInstance))
         {
             HashSet setOfEntriesForWord = wordIndex.get(wordInstance);
-            setOfEntriesForWord.add(indexEntryForWordInstance);
+
+            setOfEntriesForWord.add(wordPositionForWordInstance);
         }
         else
         {
-            HashSet<IndexEntry> setOfIndexEntriesForWord = new HashSet<IndexEntry>();
+            HashSet<WordPosition> setOfIndexEntriesForWord = new HashSet<WordPosition>();
 
-            setOfIndexEntriesForWord.add(indexEntryForWordInstance);
+            setOfIndexEntriesForWord.add(wordPositionForWordInstance);
+
+        
+
             wordIndex.put(wordInstance, setOfIndexEntriesForWord);
         }
 
