@@ -1,0 +1,89 @@
+package nass_maintenance;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import nass_gui.MyGUI;
+
+public class AdminGui extends Frame implements WindowListener, ActionListener {
+	Panel p1 = new Panel();
+	Panel p2 = new Panel();
+	Panel p3 = new Panel();
+	Panel p4 = new Panel();
+	Label titleLbl = new Label("NASS Engine - Admin");
+	Label fileName = new Label("File Name");
+	Label status = new Label("Status");
+	Button addFile = new Button("Add File...");
+	Button rebuild = new Button("Rebuild Out-of-date");
+	Button remove = new Button("Remove Selected Files");
+	Button reset  = new Button("Reset Windows");
+	Label indexed = new Label("Number of files indexed: ");
+	Label indexedNum = new Label("");
+	Label version = new Label("NASS Engine version 1.0");
+	
+	AdminGui() {
+		super("NASS Engine Maintenance");
+		
+		p1.setLayout(new FlowLayout());
+		p2.setLayout(new GridLayout(1,2));
+		p3.setLayout(new GridLayout(1,2));
+		p4.setLayout(new GridLayout(2,3));
+		
+		p1.add(titleLbl);
+		p2.add(fileName);
+		p2.add(status);
+		p4.add(addFile);
+		addFile.addActionListener(this);
+		p4.add(rebuild);
+		rebuild.addActionListener(this);
+		p4.add(remove);
+		remove.addActionListener(this);
+		p4.add(reset);
+		reset.addActionListener(this);
+		p4.add(indexed);
+		p4.add(indexedNum);
+		p4.add(version);
+		
+		Frame f = new Frame();
+		f.setLayout(new GridLayout(4,1));
+		f.setSize(800,600);
+		f.addWindowListener(this);
+		f.add(p1);
+		f.add(p2);
+		f.add(p3);
+		f.add(p4);
+		f.setVisible(true);
+	}
+	
+	public void windowActivated(WindowEvent w) {}  
+	public void windowClosed(WindowEvent w) {}  
+	public void windowClosing(WindowEvent w) {  
+	    dispose();  //I can't get this to close the window
+	}  
+	public void windowDeactivated(WindowEvent w) {}  
+	public void windowDeiconified(WindowEvent w) {}  
+	public void windowIconified(WindowEvent w) {}  
+	public void windowOpened(WindowEvent arg0) {}  
+
+	
+	public void actionPerformed(ActionEvent e) {
+		if(e.getActionCommand().equals("Add File...")) {
+			AddFileToIndexFileList();
+			BuildIndexFromDataFiles();
+		}
+		else if(e.getActionCommand().equals("Rebuild Out-of-date")) {
+			DiscardAndRebuildIndex();
+		}
+		else if(e.getActionCommand().equals("Remove Selected Files")) {
+			RemoveFileFromIndexFileList();
+		}
+		else if(e.getActionCommand().equals("Reset Windows")) {
+			SetWindowDisplay();
+		}
+	}
+	
+	public static void main(String[] args) {
+		new AdminGui();
+	}
+}
